@@ -1,0 +1,152 @@
+body{
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    background-color: black;
+    font-size: 20px;
+    color: white;
+}
+main {
+    display: flex;                          /* Coloca los hijos del <main> (galería y formulario) uno al lado del otro (en fila). */
+    justify-content: space-around;         /* Deja espacio entre los elementos y también a los lados para que no estén pegados. */
+    align-items: flex-start;               /* Alinea los elementos al inicio del eje vertical (arriba del todo). */
+    padding: 40px;                          /* Agrega espacio interno alrededor del contenido del <main>. */
+    gap: 40px;                              /* Deja un espacio de 40px entre la galería y el formulario. */
+    background: linear-gradient(135deg, #c1c2c3, #098af6); /* Fondo con un degradado diagonal de gris a azul. */
+    flex-wrap: wrap;                        /* Permite que los elementos bajen si la pantalla es pequeña (responsive). */
+}
+.galeria {
+    flex: 2;                                /* Ocupa la mitad del ancho del contenedor (main). Se adapta al espacio disponible. */
+}
+.grid {
+    display: grid;                          /* Usa sistema de cuadrícula para alinear las imágenes. */
+    grid-template-columns: repeat(4, 1fr);  /* Crea 3 columnas de igual tamaño (1fr = una fracción del espacio disponible). */
+    gap: 40px;                              /* Espacio entre las imágenes. */
+    justify-items: center;                 /* Centra cada celda de la cuadrícula horizontalmente. */
+}
+.grid img{
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1; /* aspecto de la imagen */
+    border-radius: 12px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    border-radius: 50px;
+}
+.grid img:hover{
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgb(7, 49, 235);
+
+}
+.formulario {
+    flex: 1;                                /* Igual que la galería, ocupa una porción igual del contenedor. */
+    background-color: #ffffff30;            /* Fondo blanco transparente (30 = 30% de opacidad en hexadecimal). */
+    padding: 20px;                          /* Espacio interior (relleno) dentro del formulario. */
+    border-radius: 10px;                    /* Bordes redondeados. */
+    color: black;                           /* Texto en color negro. */
+}
+.campo {
+    margin-bottom: 20px;                    /* Deja espacio debajo de cada campo de entrada (input). */
+    text-align: left;                       /* Alinea el texto (etiquetas) a la izquierda. */
+}
+
+input, button {
+    width: 100%;                            /* El ancho ocupa todo el contenedor padre. */
+    padding: 8px;                           /* Espacio interno dentro del input o botón. */
+    border: none;                           /* Sin borde. */
+    border-radius: 8px;                     /* Bordes ligeramente redondeados. */
+}
+button {
+    background-color: #007bff;              /* Azul brillante como fondo del botón. */
+    color: white;                           /* Texto blanco. */
+    cursor: pointer;                        /* Cambia el cursor a una mano al pasar por encima. */
+}
+button:hover{
+    background-color: #c1c2c3;
+}
+#titulo-contacto{
+    border: 5px solid #f2d533;
+    background-color: silver;
+    display: inline-block;
+    border-radius: 100px;
+}
+#titulo-galeria{
+    border: 5px solid #f2d533;
+    background-color: silver;
+    color: black;
+    display: inline-block;
+    border-radius: 100px;
+}
+
+/* == Media Queries == */
+/* Tablets: 2 columnas */
+
+@media screen and (max-width: 900px) {
+    .grid{
+        grid-template-columns: repeat(2, 1fr);
+    }
+    header{
+        display: inline-block;
+        margin: 8px;
+    }
+    
+}
+
+/* Móviles 1 columna */
+
+@media screen and (max-width: 600px){
+    .grid{
+        grid-template-columns: 1fr;
+    }
+    header h1{
+        font-size: 1.5rem;
+    }
+    header {
+        display: block;
+        margin: 10px 0;
+    }
+    
+}
+
+/* Zoom Suave */
+.efecto1 img:hover{
+    transform: scale(1.1);
+}
+/*Rotacion*/
+.efecto2 img:hover{
+    transform: rotate(180deg);
+}
+/*Escala+Sombra*/
+.efecto3 img:hover{
+    transform: scale(1.1);
+    box-shadow: 0 10px 20px rgba(15,249,7,0.975);
+}
+/* Efecto 4: Blanco y negro */
+.efecto4 img {
+    filter: grayscale(100%);
+}
+.efecto4 img:hover {
+    filter: grayscale(0%);
+}
+  
+  /* Efecto 5: Saturación extrema */
+.efecto5 img:hover {
+    filter: saturate(300%);
+}
+  
+  /* Efecto 6: Invertido */
+.efecto6 img:hover {
+    filter: invert(100%);
+}
+  
+  /* Efecto 7: Brillo + escala */
+.efecto7 img:hover {
+    filter: brightness(1.5);
+    transform: scale(1.1);
+}
+  
+  /* Efecto 8: Desenfoque suave */
+.efecto8 img:hover {
+    filter: blur(2px);
+    transform: scale(1.05);
+}
+
